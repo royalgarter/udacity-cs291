@@ -25,10 +25,9 @@ function PolygonGeometry(sides, location) {
 		var y = Math.sin( angle );
 
 		// Save the vertex location
-		geo.vertices.push( new THREE.Vector3( x, y, 0.0 ) );
+		geo.vertices.push( new THREE.Vector3( x + location.x, y + location.y, 0.0 ) );
 	}
 
-	// generate faces
 	for ( var face = 0 ; face < sides-2; face++ )
 	{
 		// this makes a triangle fan, from the first +Y point around
