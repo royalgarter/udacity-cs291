@@ -64,6 +64,12 @@ function fillScene() {
 	// ALSO CHECK OUT GUI CONTROLS FOR BODY
 	// IN THE FUNCTIONS setupGUI() and render()
 	// Note you'll have to add the body to the scene to get it to display.
+	createRobotBody( body, bodyLength, robotBodyMaterial )
+	
+	arm.position.y = bodyLength;
+	
+	body.add( arm );
+	scene.add( body );
 }
 
 function createRobotExtender( part, length, material )
@@ -205,7 +211,7 @@ function render() {
 
 	// UNCOMMENT FOLLOWING LINES TO ENABLE CONTROLS FOR BODY:
 
-	// body.rotation.y = effectController.by * Math.PI/180;	// yaw
+	body.rotation.y = effectController.by * Math.PI/180;	// yaw
 
 	arm.rotation.y = effectController.uy * Math.PI/180;	// yaw
 	arm.rotation.z = effectController.uz * Math.PI/180;	// roll
@@ -227,7 +233,7 @@ function setupGui() {
 		newAxes: axes,
 
 		// UNCOMMENT FOLLOWING LINE TO SET DEFAULT VALUE OF CONTROLS FOR BODY:
-		// by: 0.0,
+		by: 0.0,
 
 		uy: 70.0,
 		uz: -15.0,
