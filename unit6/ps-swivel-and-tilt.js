@@ -256,6 +256,15 @@ function animate() {
 function render() {
 	var delta = clock.getDelta();
 	cameraControls.update(delta);
+
+	
+	var y = Math.sin(effectController.altitude*Math.PI/180);
+	var normHelper = Math.sqrt(1 - Math.pow(y, 2));
+	
+	light.position.set( normHelper*Math.cos(effectController.azimuth*Math.PI/180), 
+	                    y, 
+	                    normHelper*Math.sin(effectController.azimuth*Math.PI/180) );
+	
 	renderer.render(scene, camera);
 }
 

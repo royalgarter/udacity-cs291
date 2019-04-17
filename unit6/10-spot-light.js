@@ -32,9 +32,14 @@ function fillScene() {
 	// angle 20 degrees
 	// exponent 1
 	// target position 0, 200, 0
+	var light = new THREE.SpotLight( 0xFFFFFF, 1.5 );
+	light.position.set( -400, 1200, 300 );
+	light.angle = 20*Math.PI/180;
+	light.exponent = 1;
 
-	var light = new THREE.DirectionalLight( 0xFFFFFF, 1.5 );
-	light.position.set( -200, 200, -400 );
+	var targetObject = new THREE.Object3D();
+	targetObject.position = new THREE.Vector3(0, 200, 0);
+	light.target = targetObject;
 	scene.add( light );
 
 	var solidGround = new THREE.Mesh(
