@@ -333,6 +333,10 @@ function createDrinkingBird(bbird) {
 	// pivotHeight is the height of the crossbar
 	var pivotHeight = 360;
 
+	head.position.y -= pivotHeight;
+	body.position.y -= pivotHeight;
+	bodyhead.position.y += pivotHeight;
+
 	// add field for animated part, for simplicity
 	bbird.animated = bodyhead;
 
